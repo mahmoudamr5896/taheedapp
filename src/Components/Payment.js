@@ -1,8 +1,21 @@
-// src/Pages/PaymentInfo.js
-import React from 'react';
+import React, { useState } from 'react';
 import './PaymentInfo.css';
+import { Link } from 'react-router-dom';
 
-export default function PaymentInfo() {
+export default function PaymentInfo({ updateFormData, onNext }) {
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Save the file and navigate to the next page
+    // updateFormData(file)
+    onNext();
+  };
+
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-80 w-md-80 w-lg-50 h-100 d-flex flex-column align-items-center border pt-5 ">
@@ -18,10 +31,18 @@ export default function PaymentInfo() {
           مصرف الانماء
         </p>
         <p className="fs-6">SA395000000694525500587</p>
-        <div className="d-flex justify-content-end">
-            <input className='control-form' type='file' placeholder='ارفق ايصال التحويل هنا'></input>
-          <button className="btn btn-dark">التالي</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            className='control-form'
+            type='file'
+            onChange={handleFileChange}
+            placeholder='ارفق ايصال التحويل هنا'
+            required
+          />
+          <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي</button>
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -1,27 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './Firstpage.css'
-export default function Sixpage() {
+
+export default function Sixthpage({ updateFormData, onNext }) {
+  const [numberOfMotorcycles, setNumberOfMotorcycles] = useState("");
+
+  const handleNumberOfMotorcyclesChange = (e) => {
+    setNumberOfMotorcycles(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateFormData({ numberOfMotorcycles });
+    onNext();
+  };
+
   return (
     <div className="iphone-border d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-80 h-100 d-flex flex-column align-items-center border pt-5">
         <p className="text-end text-Primary fs-4">
-          كم عدد الدراجات النارية<br></br> اللي ودك تشتـري ؟
+          كم عدد الدراجات النارية التي ترغب في شرائها؟
         </p>
-        سعر الشـراء يشمل :<br></br> الدراجة النارية 3300<br></br> ريال اصدار اللوحات 500 ريال
-        <br></br>التأمين سنتين 2150 ريال
-        <input
-          type="text"
-          placeholder="اختـر العدد من هنا"
-          className="form-control mb-2"
-        ></input>
-        <div className="row">
-          <span className="col-10 fs-6">
-          كل دراجة نارية تؤجر بـ 500 ريال شهريا          </span>
-          <Link to="/6" className="btn btn-dark col-2">
-            التالي
-          </Link>
-        </div>
+        <p>
+          سعر الشراء يشمل:
+          <br />
+          الدراجة النارية: 3300 ريال
+          <br />
+          رسوم اللوحات: 500 ريال
+          <br />
+          التأمين لمدة سنتين: 2150 ريال
+        </p>
+        <form onSubmit={handleSubmit} className="w-100">
+          <input
+            type="number"
+            placeholder="ادخل عدد الدراجات النارية"
+            className="form-control mb-2"
+            value={numberOfMotorcycles}
+            onChange={handleNumberOfMotorcyclesChange}
+            required
+          />
+          <button type="submit" className="btn btn-dark">التالي</button>
+        </form>
       </div>
     </div>
   );

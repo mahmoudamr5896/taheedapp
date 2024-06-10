@@ -12,6 +12,7 @@ import Sevenpage from './Pages/Sevenpage';
 import Ninepage from './Pages/Ninepage';
 import PaymentInfo from './Components/Payment';
 import Thanks from './Components/Thanks';
+import Home from './Pages/Home';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
    
     <Router>
        <Routes>
-         <Route path="/" Component={Firstpage} />
+         <Route path="/" Component={Home} />
          <Route path="/1" Component={Secondpage} />
          <Route path="/2" Component={thirdpage}/>
          <Route path="/3" Component={Fourpage}/>

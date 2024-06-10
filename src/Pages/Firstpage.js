@@ -2,23 +2,25 @@ import './Firstpage.css';
 
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Secondpage from './Secondpage';
 
 function Firstpage() {
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
-      navigate('/1'); // Use navigate('/1') to navigate to the '/1' route
+      // navigate('/1');
+      return (
+        <Secondpage></Secondpage>
+      )
     }, 2000);
 
     return () => clearTimeout(redirectTimeout);
   }, [navigate]);
 
   return (
-
-
     <div className="iphone-border d-flex justify-content-center align-items-center vh-100">
-      <div className="p-3 w-30 h-100 d-flex flex-column align-items-center border">
+      <div className="p-3 w-80 h-100 d-flex flex-column align-items-center border">
         <div className="d-flex align-items-center mb-3">
           <h6 className="ml-2">للاعمال</h6>
           <h1 className="ml-2">تعهيد</h1>

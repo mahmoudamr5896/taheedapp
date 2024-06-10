@@ -1,4 +1,3 @@
-// src/Pages/RegistrationCheck.js
 import React from 'react';
 import './RegistrationCheck.css';
 
@@ -13,7 +12,7 @@ export default function RegistrationCheck() {
           سيتم ابلاغك عبر البريد الالكتروني عند الانتهاء من المراجعة
         </p>
         <p className="fs-6">
-          ت ّ ستطيع تسجيل الدخـول و الاطلاع علـى المعلومات
+          تستطيع تسجيل الدخول والاطلاع على المعلومات
           <br />
           بعد التحقق من اتمام خطوات التسجيل
         </p>
