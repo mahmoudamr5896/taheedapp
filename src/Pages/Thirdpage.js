@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './Firstpage.css';
+import axios from "axios";
 
-export default function Thirdpage({ updateFormData, onNext }) {
+export default function Thirdpage({ updateFormData, onNext, formData }) {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
 
@@ -17,8 +18,24 @@ export default function Thirdpage({ updateFormData, onNext }) {
       return;
     }
 
-    updateFormData({ code });
-    onNext();
+    try {
+      const response = await axios.post("http://localhost:3001/verify", {
+        email: formData.email,
+        verificationCode: code
+      });
+      
+      if (response.status === 200) {
+        // Handle success
+        console.log('Verification successful');
+        updateFormData({ code }); // Move inside if block
+        onNext(); // Move inside if block
+      } else {
+        // Handle error
+        console.error('Failed to verify');
+      }
+    } catch (error) {
+      console.error('Error verifying:', error);
+    }
   };
 
   return (

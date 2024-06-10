@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Firstpage.css';
+import axios from "axios";
 
 export default function Secondpage({ updateFormData, onNext }) {
   const [email, setEmail] = useState("");
@@ -16,7 +16,29 @@ export default function Secondpage({ updateFormData, onNext }) {
       return;
     }
 
+    try {
+      const response = await fetch('http://localhost:3001/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log('Email submitted successfully');
+        onNext();
+      } else {
+        // Handle error
+        console.error('Failed to submit email');
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    }
+    localStorage.setItem('email',email)
     updateFormData({ email });
+    console.log(email);
     onNext();
   };
 
