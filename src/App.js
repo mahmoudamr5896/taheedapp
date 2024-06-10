@@ -13,7 +13,8 @@ import Ninepage from './Pages/Ninepage';
 import PaymentInfo from './Components/Payment';
 import Thanks from './Components/Thanks';
 import Home from './Pages/Home';
-
+import Dashboard from './Pages/Dashboard';
+import CustomerDetails from './Components/Customerdetail';
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,11 @@ function App() {
     <Router>
        <Routes>
          <Route path="/" Component={Home} />
-         <Route path="/1" Component={Secondpage} />
+         <Route path="/dash" Component={Dashboard} />
+         <Route path="/:id" Component={CustomerDetails} />
+
+
+         {/* <Route path="/1" Component={Secondpage} />
          <Route path="/2" Component={thirdpage}/>
          <Route path="/3" Component={Fourpage}/>
          <Route path="/4" Component={Fivepage}/>
@@ -30,7 +35,7 @@ function App() {
          <Route path="/7" Component={Eightpage}/>
          <Route path="/8" Component={Ninepage}/>
          <Route path="/9" Component={PaymentInfo}/>
-         <Route path="/10" Component={Thanks}/>
+         <Route path="/10" Component={Thanks}/> */}
        </Routes>
      </Router>
      </div>
