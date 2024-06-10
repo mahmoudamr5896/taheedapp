@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Firstpage.css';
 
 export default function Secondpage() {
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 mb-5">
+    <div className="iphone-border d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-20 h-100 d-flex flex-column align-items-center border">
         <h3>اهلا وسهلا</h3>
         <p className="text-end text-Primary fs-4">
@@ -11,7 +12,7 @@ export default function Secondpage() {
           خلالنــا
         </p>
         <input
-          type="text"
+          type="email"
           placeholder="ادخل بريدك الالكـتـرونـي"
           className="form-control mb-2"
         ></input>

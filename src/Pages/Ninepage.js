@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Ninepage.css'; // Optional for additional styles
-
+import './Firstpage.css'
 export default function Ninepage() {
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 mb-5">
+    <div className="iphone-border d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-80 w-md-80 w-lg-50 h-100 d-flex flex-column align-items-center border pt-5 ">
         <p className="text-start text-primary fs-4">
           الإتفاقية
@@ -33,7 +33,7 @@ export default function Ninepage() {
           <span className="col-12 col-md-8 fs-6 text-end mb-2 mb-md-0">
             سوف يتم ارسال نسخة موقعة من قبلنا على بريدك الالكتروني بعد انهاءك لجميع خطوات التسجيل
           </span>
-          <Link to="/3" className="btn btn-dark col-12 col-md-4">
+          <Link to="/9" className="btn btn-dark col-12 col-md-4">
             التالي
           </Link>
         </div>

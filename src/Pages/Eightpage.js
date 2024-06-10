@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Firstpage.css'
 export default function Eightpage() {
   return (
     <div>
-      <div className="d-flex justify-content-center align-items-center vh-100 mb-5">
+      <div className="iphone-border  d-flex justify-content-center align-items-center vh-100 mb-5">
         <div className="p-3 w-80 h-100 d-flex flex-column align-items-center border pt-5">
           <p className="text-end text-Primary fs-4">
             إجمالـي الـمبلغ الـمطلوب سداده<br></br>
@@ -21,7 +22,7 @@ export default function Eightpage() {
             className="form-control mb-2"
           ></input>
           <div className="">
-            <Link to="/3" className="btn btn-dark col-10">
+            <Link to="/8" className="btn btn-dark col-10">
               التالي
             </Link>
           </div>
