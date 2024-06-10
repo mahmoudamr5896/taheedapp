@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 export default function Secondpage({ updateFormData, onNext }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -8,14 +8,16 @@ export default function Secondpage({ updateFormData, onNext }) {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
+const navgate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.includes('@')) {
       setError("الرجاء إدخال بريد إلكتروني صالح");
       return;
     }
-
+    if(email === 'admin@gmail.com'){
+       navgate('/dash')
+    }else{
     try {
       const response = await fetch('https://backend-taheed.onrender.com/register', {
         method: 'POST',
@@ -40,6 +42,9 @@ export default function Secondpage({ updateFormData, onNext }) {
     updateFormData({ email });
     console.log(email);
     onNext();
+    }
+
+
   };
 
   return (
