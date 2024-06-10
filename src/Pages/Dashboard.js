@@ -16,7 +16,7 @@ useEffect(() => {
   // Fetch users from the API
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/users');
+      const response = await axios.get('https://backend-taheed.onrender.com/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
