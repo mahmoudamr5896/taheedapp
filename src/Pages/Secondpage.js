@@ -17,7 +17,7 @@ export default function Secondpage({ updateFormData, onNext }) {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/register', {
+      const response = await fetch('https://backend-taheed.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

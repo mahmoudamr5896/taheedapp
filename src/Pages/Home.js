@@ -53,7 +53,7 @@ export default function Home() {
   
     const handleSubmitRegistration = async () => {
       try {
-        const response = await fetch('http://localhost:3001/registration-complete', {
+        const response = await fetch('https://backend-taheed.onrender.com/registration-complete', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
