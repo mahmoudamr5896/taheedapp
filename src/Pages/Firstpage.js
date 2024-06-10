@@ -9,7 +9,7 @@ function Firstpage() {
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
       navigate('/1'); // Use navigate('/1') to navigate to the '/1' route
-    }, 20000);
+    }, 2000);
 
     return () => clearTimeout(redirectTimeout);
   }, [navigate]);
