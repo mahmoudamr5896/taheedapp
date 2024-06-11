@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Firstpage from './Firstpage';
-import Secondpage from './Secondpage';
-import Thirdpage from './Thirdpage';
-import Fourthpage from './Fourpage';
-import Fifthpage from './Fivepage';
-import Sixthpage from './Sixpage';
-import Seventhpage from './Sevenpage';
-import Eightpage from './Eightpage';
-import Ninthpage from './Ninepage';
+import Firstpage from '../Components/Firstpage';
+import Secondpage from '../Components/Secondpage';
+import Thirdpage from '../Components/Thirdpage';
+import Fourthpage from '../Components/Fourpage';
+import Fifthpage from '../Components/Fivepage';
+import Sixthpage from '../Components/Sixpage';
+import Seventhpage from '../Components/Sevenpage';
+import Eightpage from '../Components/Eightpage';
+import Ninthpage from '../Components/Ninepage';
 import PaymentInfo from '../Components/Payment';
 import RegistrationCheck from '../Components/Thanks';
 

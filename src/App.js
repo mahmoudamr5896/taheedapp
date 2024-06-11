@@ -1,17 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Firstpage from './Pages/Firstpage';
-import Secondpage from './Pages/Secondpage';
-import thirdpage from './Pages/Thirdpage';
-import Fourpage from './Pages/Fourpage';
-import Fivepage from './Pages/Fivepage';
-import Sixpage from './Pages/Sixpage';
-import Eightpage from './Pages/Eightpage';
-import Sevenpage from './Pages/Sevenpage';
-import Ninepage from './Pages/Ninepage';
-import PaymentInfo from './Components/Payment';
-import Thanks from './Components/Thanks';
+
 import Home from './Pages/Home';
 import Dashboard from './Pages/Dashboard';
 import CustomerDetails from './Components/Customerdetail';
@@ -24,8 +14,6 @@ function App() {
          <Route path="/" Component={Home} />
          <Route path="/dash" Component={Dashboard} />
          <Route path="/:id" Component={CustomerDetails} />
-
-
          {/* <Route path="/1" Component={Secondpage} />
          <Route path="/2" Component={thirdpage}/>
          <Route path="/3" Component={Fourpage}/>
