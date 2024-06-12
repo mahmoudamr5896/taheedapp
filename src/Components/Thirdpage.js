@@ -56,11 +56,10 @@ export default function Thirdpage({ updateFormData, onNext, formData }) {
             required
           />
           {error && <p className="text-danger">{error}</p>}
-          <div>
-           <p className="col-8 fs-6">دخلت بريد الالكتروني خاطئ ؟ <Link>من هنا؟</Link></p>
-          <button type="submit" className="btn btn-dark col-3">التالي</button>  
-          </div>
-
+          <div className="d-flex justify-content-end">
+           <p className="col-10 fs-6">دخلت بريد الالكتروني خاطئ ؟ <Link>من هنا؟</Link></p>
+            <button type="submit" className="btn btn-dark col-2">التالي  </button>
+          </div>            
         </form>
       </div>
     </div>

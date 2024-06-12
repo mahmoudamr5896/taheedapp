@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Thirdpage from '../Components/Thirdpage'
 export default function Secondpage({ updateFormData, onNext }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -71,7 +71,30 @@ export default function Secondpage({ updateFormData, onNext }) {
       }
     }
   };
+  const Addcontract = async() =>{
+    try {
+      const response = await fetch('https://backend-taheed.onrender.com/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
+      if (response.ok) {
+        console.log('Email submitted successfully');
+        localStorage.setItem('email', email);
+        updateFormData({ email });
+        onNext();
+      } else {
+        setError("Failed to submit email");
+        console.error('Failed to submit email');
+      }
+    } catch (error) {
+      setError("Error submitting email");
+      console.error('Error submitting email:', error);
+    }
+  }
   return (
     <div className="iphone-border d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-20 h-100 d-flex flex-column align-items-center border">
@@ -107,7 +130,7 @@ export default function Secondpage({ updateFormData, onNext }) {
                 <p>أهلا و سهلا</p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => onNext()}>أضافه عقد</button>
+                <button type="button" className="btn btn-secondary" onClick={() => Addcontract()}>أضافه عقد</button>
                 <button type="button" className="btn btn-primary" onClick={() => navigate(`/${odl}`)}>لوحة التحكم</button>
               </div>
             </div>
