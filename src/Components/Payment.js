@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PaymentInfo.css';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 export default function PaymentInfo({ formData, updateFormData, onNext }) {
   const [file, setFile] = useState('');
   const [Totalprice, setTotalprice] = useState(0);
@@ -24,6 +24,24 @@ export default function PaymentInfo({ formData, updateFormData, onNext }) {
       // Check if the file is selected
       if (formData.receiptDocument) {
         console.error('File is not selected.');
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('image', file);
+    
+        try {
+          const response = await axios.post('http://localhost:3001/upload', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          if (response.status === 200) {
+            console.log('File uploaded successfully');
+          } else {
+            console.error('Failed to upload file');
+          }
+        } catch (error) {
+          console.error('Error uploading file:', error);
+        }
         
       onNext();
       }else{

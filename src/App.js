@@ -5,6 +5,7 @@ import './App.css';
 import Home from './Pages/Home';
 import Dashboard from './Pages/Dashboard';
 import CustomerDetails from './Components/Customerdetail';
+import ImageUpload from './Components/Img';
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,8 @@ function App() {
          <Route path="/" Component={Home} />
          <Route path="/dash" Component={Dashboard} />
          <Route path="/:id" Component={CustomerDetails} />
-         {/* <Route path="/1" Component={Secondpage} />
+         <Route path="/1" Component={ImageUpload} />
+         {/* 
          <Route path="/2" Component={thirdpage}/>
          <Route path="/3" Component={Fourpage}/>
          <Route path="/4" Component={Fivepage}/>
