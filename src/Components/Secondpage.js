@@ -13,7 +13,7 @@ export default function Secondpage({ updateFormData, onNext }) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://backend-taheed.onrender.com/users');
+        const response = await axios.get('https://backend-taheed-1.onrender.com/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -47,7 +47,7 @@ export default function Secondpage({ updateFormData, onNext }) {
         setModal(true);
       } else {
         try {
-          const response = await fetch('https://backend-taheed.onrender.com/register', {
+          const response = await fetch('https://backend-taheed-1.onrender.com/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function Secondpage({ updateFormData, onNext }) {
   };
   const Addcontract = async() =>{
     try {
-      const response = await fetch('https://backend-taheed.onrender.com/register', {
+      const response = await fetch('https://backend-taheed-1.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,8 +98,8 @@ export default function Secondpage({ updateFormData, onNext }) {
   return (
     <div className="iphone-border d-flex justify-content-center align-items-center vh-100 mb-5">
       <div className="p-3 w-20 h-100 d-flex flex-column align-items-center border">
-        <h3>اهلا وسهلا</h3>
-        <p className="text-end text-Primary fs-4">
+        <h3 className="text-end mb-5">أهلا وسهلا</h3>
+        <p className="text-end text-Primary fs-4 mb-5">
           من هنا خطوتك الأولـى لشراء<br /> دراجة نارية ثم تأجيـرها على شركات<br /> معتمدة من خلالنــا
         </p>
         <form onSubmit={handleSubmit} className="w-100">
@@ -123,11 +123,11 @@ export default function Secondpage({ updateFormData, onNext }) {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
+                <h5 className="modal-title">اهلاً وسهلاً</h5>
                 <button type="button" className="btn-close" aria-label="Close" onClick={() => setModal(false)}></button>
               </div>
               <div className="modal-body">
-                <p>أهلا و سهلا</p>
+                <p>ماذا تريد</p>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" onClick={() => Addcontract()}>أضافه عقد</button>

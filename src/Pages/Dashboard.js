@@ -17,7 +17,7 @@ useEffect(() => {
   // Fetch users from the API
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://backend-taheed.onrender.com/users');
+      const response = await axios.get('https://backend-taheed-1.onrender.com/users');
       setUsers(response.data);
       
     } catch (error) {
@@ -168,7 +168,7 @@ setmassage('')
 }
 const handleDeleteUser = async (id) => {
   try {
-    const response = await axios.delete(`https://backend-taheed.onrender.com/users/${id}`);
+    const response = await axios.delete(`https://backend-taheed-1.onrender.com/users/${id}`);
     if (response.status === 200) {
       setUsers(users.filter(user => user.id !== id));
     } else {
