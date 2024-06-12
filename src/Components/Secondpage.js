@@ -89,7 +89,9 @@ export default function Secondpage({ updateFormData, onNext }) {
             required
           />
           {error && <p className="text-danger">{error}</p>}
-          <button type="submit" className="btn btn-dark w-100">التالي</button>
+          <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي  </button>
+          </div>
         </form>
       </div>
       

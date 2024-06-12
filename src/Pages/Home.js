@@ -90,7 +90,7 @@ export default function Home() {
         {currentPage === 'seventh' && <Seventhpage  onNext={() => handleNextPage('eight')} />}
         {currentPage === 'eight' && <Eightpage formData={formData} onNext={() => handleNextPage('nine')} />}
         {currentPage === 'nine' && <Ninthpage formData={formData} onNext={() => handleNextPage('payment')} />}
-        {currentPage === 'payment' && <PaymentInfo formData={formData} onNext={handleSubmitRegistration} />}
+        {currentPage === 'payment' && <PaymentInfo formData={formData} updateFormData={updateFormData} onNext={handleSubmitRegistration} />}
         {currentPage === 'registrationCheck' && <RegistrationCheck />}
       </div>
     </div>

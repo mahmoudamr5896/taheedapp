@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Firstpage.css';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Thirdpage({ updateFormData, onNext, formData }) {
   const [code, setCode] = useState("");
@@ -31,9 +32,10 @@ export default function Thirdpage({ updateFormData, onNext, formData }) {
         onNext(); // Move inside if block
       } else {
         // Handle error
-        console.error('Failed to verify');
+        setError('تحقق من صحه الكود ');
       }
     } catch (error) {
+      setError('تحقق من صحه الكود ');
       console.error('Error verifying:', error);
     }
   };
@@ -54,7 +56,11 @@ export default function Thirdpage({ updateFormData, onNext, formData }) {
             required
           />
           {error && <p className="text-danger">{error}</p>}
-          <button type="submit" className="btn btn-dark col-2">التالي</button>
+          <div>
+           <p className="col-8 fs-6">دخلت بريد الالكتروني خاطئ ؟ <Link>من هنا؟</Link></p>
+          <button type="submit" className="btn btn-dark col-3">التالي</button>  
+          </div>
+
         </form>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Sixthpage({ updateFormData, onNext }) {
   const [numberOfMotorcycles, setNumberOfMotorcycles] = useState("");
+  const [error, setError] = useState("");
 
   const handleNumberOfMotorcyclesChange = (e) => {
     setNumberOfMotorcycles(e.target.value);
@@ -10,7 +10,16 @@ export default function Sixthpage({ updateFormData, onNext }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateFormData({ numberOfMotorcycles });
+    setError("");
+
+    const motorcycles = parseInt(numberOfMotorcycles, 10);
+
+    if (isNaN(motorcycles) || motorcycles <= 0) {
+      setError("الرجاء إدخال عدد صالح للدراجات النارية");
+      return;
+    }
+
+    updateFormData({ motorcycleCount: motorcycles });
     onNext();
   };
 
@@ -38,7 +47,8 @@ export default function Sixthpage({ updateFormData, onNext }) {
             onChange={handleNumberOfMotorcyclesChange}
             required
           />
-          <button type="submit" className="btn btn-dark">التالي</button>
+          {error && <p className="text-danger">{error}</p>}
+          <button type="submit" className="btn btn-dark w-100">التالي</button>
         </form>
       </div>
     </div>

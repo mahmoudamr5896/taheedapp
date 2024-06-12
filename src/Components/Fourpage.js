@@ -12,8 +12,15 @@ export default function Fourthpage({ updateFormData, onNext }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const phonePattern = /^(\+?\d{1,3}[- ]?)?\d{10}$/;
+
     if (!phone) {
       setError("الرجاء إدخال رقم الهاتف");
+      return;
+    }
+
+    if (!phonePattern.test(phone)) {
+      setError("الرجاء إدخال رقم هاتف صالح");
       return;
     }
 
@@ -37,8 +44,9 @@ export default function Fourthpage({ updateFormData, onNext }) {
             required
           />
           {error && <p className="text-danger">{error}</p>}
-          <button type="submit" className="btn btn-dark col-2">التالي</button>
-        </form>
+          <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي  </button>
+          </div>        </form>
       </div>
     </div>
   );

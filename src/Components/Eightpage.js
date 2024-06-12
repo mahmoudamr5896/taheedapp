@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import './Firstpage.css'
 
-export default function Eightpage({ updateFormData, onNext }) {
+export default function Eightpage({ formData, onNext }) {
   const [checked, setChecked] = useState(false);
+  const [Totalprice, setTotalprice] = useState(0);
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
@@ -11,11 +11,13 @@ export default function Eightpage({ updateFormData, onNext }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Update form data with the checkbox value
-    // updateFormData('ss');
-    // Navigate to the next page
     onNext();
   };
+
+  // Calculate total price when formData changes
+  useState(() => {
+    setTotalprice(formData.motorcycleCount * 5950); // Assuming the price per motorcycle is 5950
+  }, [formData]);
 
   return (
     <div>
@@ -23,7 +25,7 @@ export default function Eightpage({ updateFormData, onNext }) {
         <div className="p-3 w-80 h-100 d-flex flex-column align-items-center border pt-5">
           <p className="text-end text-Primary fs-4">
             إجمالـي المبلغ المطلوب سداده<br></br>
-            5950 ريال 
+            {Totalprice} ريال 
             <br></br> 
             سوف تؤجر بـ 500 ريال شهريا <br></br>
             لمدة 18 شهر
@@ -43,9 +45,9 @@ export default function Eightpage({ updateFormData, onNext }) {
                 لقد فهمت ذلك
               </label>
             </div>
-            <div className="">
-              <button type="submit" className="btn btn-dark col-10">التالي</button>
-            </div>
+            <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي  </button>
+          </div>
           </form>
         </div>
       </div>

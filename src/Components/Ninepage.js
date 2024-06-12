@@ -58,9 +58,9 @@ export default function Ninepage({ updateFormData, onNext }) {
             <span className="col-12 col-md-8 fs-6 text-end mb-2 mb-md-0">
               سيتم إرسال نسخة موقعة من قبلنا إلى بريدك الإلكتروني بعد اكتمال عملية التسجيل
             </span>
-            <button type="submit" className="btn btn-dark col-12 col-md-4">
-              التالي
-            </button>
+            <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي  </button>
+          </div>
           </div>
         </form>
       </div>

@@ -17,8 +17,22 @@ export default function Fifthpage({ updateFormData, onNext }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Regex patterns for validation
+    const fullNamePattern = /^[\u0600-\u06FFa-zA-Z ]+$/; // Arabic and English letters and spaces
+    const nationalIDPattern = /^\d{14}$/; // 14 digit number
+
     if (!fullName || !nationalID) {
       setError("الرجاء إدخال الاسم الكامل ورقم الهوية الوطنية");
+      return;
+    }
+
+    if (!fullNamePattern.test(fullName)) {
+      setError("الرجاء إدخال اسم كامل صالح");
+      return;
+    }
+
+    if (!nationalIDPattern.test(nationalID)) {
+      setError("الرجاء إدخال رقم هوية وطنية صالح");
       return;
     }
 
@@ -45,14 +59,14 @@ export default function Fifthpage({ updateFormData, onNext }) {
             type="text"
             placeholder="ادخل رقم الهوية الوطنية"
             className="form-control mb-2"
-           
             value={nationalID}
             onChange={handleNationalIDChange}
             required
           />
           {error && <p className="text-danger">{error}</p>}
-          <button type="submit" className="btn btn-dark w-100">التالي</button>
-        </form>
+          <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-dark">التالي  </button>
+          </div>        </form>
       </div>
     </div>
   );
