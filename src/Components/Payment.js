@@ -15,14 +15,25 @@ export default function PaymentInfo({ formData, updateFormData, onNext }) {
   }, [formData]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Create FormData object to send file data
-    const formData = new FormData();
-    formData.append('receiptDocument', file);
-    console.log(file);
-    // Save the file and navigate to the next page
-    updateFormData(formData);
-    onNext();
+      e.preventDefault();
+    
+      // Create FormData object to send file data
+      const formDataToUpdate = { ...formData, receiptDocument: file.name };
+      updateFormData(formDataToUpdate);
+
+      // Check if the file is selected
+      if (formData.receiptDocument) {
+        console.error('File is not selected.');
+        
+      onNext();
+      }else{
+        console.error('File is not selected.');
+
+      }
+    
+      // Update the formData object and navigate to the next page
+    
+    
   };
   
 
