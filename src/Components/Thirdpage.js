@@ -20,7 +20,7 @@ export default function Thirdpage({ updateFormData, onNext, formData }) {
     }
 
     try {
-      const response = await axios.post("https://backend-taheed-1.onrender.com/verify", {
+      const response = await axios.post("http://localhost:3001/verify", {
         email: formData.email,
         verificationCode: code
       });

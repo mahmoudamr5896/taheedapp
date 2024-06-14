@@ -13,7 +13,7 @@ export default function Secondpage({ updateFormData, onNext }) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://backend-taheed-1.onrender.com/users');
+        const response = await axios.get('http://localhost:3001/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -47,7 +47,7 @@ export default function Secondpage({ updateFormData, onNext }) {
         setModal(true);
       } else {
         try {
-          const response = await fetch('https://backend-taheed-1.onrender.com/register', {
+          const response = await fetch('http://localhost:3001/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -72,8 +72,8 @@ export default function Secondpage({ updateFormData, onNext }) {
     }
   };
   const Addcontract = async() =>{
-    try {
-      const response = await fetch('https://backend-taheed-1.onrender.com/register', {
+    try {  // https://backend-taheed-1.onrender.com
+      const response = await fetch('http://localhost:3001/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
