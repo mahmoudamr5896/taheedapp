@@ -29,7 +29,7 @@ export default function PaymentInfo({ formData, updateFormData, onNext }) {
         formData.append('image', file);
     
         try {
-          const response = await axios.post('http://localhost:3001/upload', formData, {
+          const response = await axios.post('https://backend-taheed.onrender.com/upload', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
