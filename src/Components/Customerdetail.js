@@ -11,7 +11,7 @@ const CustomerDetails = () => {
   useEffect(() => {
     const fetchCustomerDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/users/${id}`);
+        const response = await axios.get(`https://backend-taheed.onrender.com/users/${id}`);
         setCustomer(response.data);
         setLoading(false);
       } catch (error) {
